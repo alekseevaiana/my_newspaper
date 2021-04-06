@@ -10,6 +10,11 @@
       "StackName": "amplify-mynewspaper-staging-215946",
       "StackId": "arn:aws:cloudformation:us-east-2:858584556951:stack/amplify-mynewspaper-staging-215946/66ad8730-9723-11eb-b3a6-026a53fac952",
       "AmplifyAppId": "d3fkjhridnftbd"
+    },
+    "categories": {
+      "auth": {
+        "mynewspaperf0244246": {}
+      }
     }
   }
 }

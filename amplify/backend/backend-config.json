@@ -1,1 +1,10 @@
-{}
+{
+  "auth": {
+    "mynewspaperf0244246": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}
