@@ -1,6 +1,6 @@
 {
     "identityPoolName": "mynewspaperf0244246_identitypool_f0244246",
-    "allowUnauthenticatedIdentities": false,
+    "allowUnauthenticatedIdentities": true,
     "resourceNameTruncated": "mynewsf0244246",
     "userPoolName": "mynewspaperf0244246_userpool_f0244246",
     "autoVerifiedAttributes": [

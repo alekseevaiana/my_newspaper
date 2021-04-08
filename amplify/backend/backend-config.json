@@ -6,5 +6,29 @@
       "dependsOn": [],
       "customAuth": false
     }
+  },
+  "api": {
+    "mynewspaper": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "API_KEY",
+            "apiKeyConfig": {
+              "apiKeyExpirationDays": 100,
+              "description": "demo"
+            }
+          },
+          "additionalAuthenticationProviders": []
+        }
+      }
+    }
+  },
+  "storage": {
+    "uploads": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
+    }
   }
 }
