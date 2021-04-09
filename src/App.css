@@ -1,10 +1,6 @@
-.App {
-  text-align: center;
-}
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+html {
+  --color-background: #6fcf97;
+  --footer-background: #2d9cdb;
 }
 
 @media (prefers-reduced-motion: no-preference) {

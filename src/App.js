@@ -1,13 +1,13 @@
 import React from 'react';
 import './App.css';
+import './pages/MainPage';
 import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react'
+import MainPage from './pages/MainPage';
 
 function App() {
   return (
     <div className="App">
-      <header>
-        <h1>We now have Auth!</h1>
-      </header>
+      <MainPage/>
       <AmplifySignOut />
     </div>
   );
