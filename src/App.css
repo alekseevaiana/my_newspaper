@@ -1,7 +1,19 @@
 html {
+  height: 100%;
   --color-background: #6fcf97;
   --footer-background: #2d9cdb;
   --color-light-font: white;
+}
+body {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.app {
+  height: 100%;
 }
 
 @media (prefers-reduced-motion: no-preference) {

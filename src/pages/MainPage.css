@@ -1,4 +1,10 @@
 .main-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.main-page_item {
 }
 
 .main-page_wrapper {
@@ -41,4 +47,5 @@
   padding-left: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
+  margin-top: auto;
 }
