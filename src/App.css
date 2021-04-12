@@ -1,6 +1,7 @@
 html {
   --color-background: #6fcf97;
   --footer-background: #2d9cdb;
+  --color-light-font: white;
 }
 
 @media (prefers-reduced-motion: no-preference) {

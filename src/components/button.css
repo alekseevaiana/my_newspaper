@@ -1,0 +1,11 @@
+.button {
+  text-decoration: none;
+}
+
+.button_link {
+  border: none;
+  background-color: transparent;
+  color: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}

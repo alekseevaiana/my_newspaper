@@ -1,0 +1,6 @@
+.navigation {
+  color: var(--color-light-font);
+  display: flex;
+  justify-content: space-between;
+  font-size: 24px;
+}
