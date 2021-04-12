@@ -9,6 +9,7 @@ export default function SignOut(props) {
     const onClick = async() => {
         try {
           await Auth.signOut()
+          window.location.href="/";
         } catch (error) {
           console.log(error)
         }
