@@ -1,11 +1,13 @@
 html {
   height: 100%;
-  --color-background: #6fcf97;
-  --footer-background: #2d9cdb;
+  --color-background: #3eb595;
+  --block-background: #3eb595;
   --color-light-font: white;
+  --light-background: white;
 }
 body {
   height: 100%;
+  background-color: var(--light-background);
 }
 
 #root {

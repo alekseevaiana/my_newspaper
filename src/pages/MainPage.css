@@ -16,7 +16,7 @@
 }
 
 .main-page_navigation {
-  background-color: #2d9cdb;
+  background-color: var(--block-background);
   margin-bottom: 10px;
   padding-right: 20px;
   padding-left: 20px;
@@ -29,6 +29,7 @@
   background-color: var(--color-background);
   padding-top: 20px;
   padding-bottom: 20px;
+  border-radius: 4px;
 }
 
 .main-page_twits {
@@ -37,10 +38,12 @@
   padding-left: 20px;
   padding-top: 20px;
   padding-bottom: 20px;
+  border-radius: 4px;
+  color: white;
 }
 
 .main-page_footer {
-  background-color: var(--footer-background);
+  background-color: var(--block-background);
   padding-right: 20px;
   padding-left: 20px;
   padding-top: 20px;

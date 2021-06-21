@@ -7,6 +7,7 @@ export default function Navigation() {
     return (
         <div className="navigation">
             <div>Home</div>
+            <div>Profile</div>
             <SignOut button_type="button_link">Sign out</SignOut>
         </div>
     )
