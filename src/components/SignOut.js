@@ -19,6 +19,6 @@ export default function SignOut(props) {
             <Button
                 onClick={onClick}
                 type={props.button_type}
-            >Sign out</Button>
+            >{props.children}</Button>
     )
 }

@@ -16,9 +16,6 @@ export default function MainPage() {
                 </section>
                 <section className="main-page_twits">Twits</section>
             </div>
-            <section className="main-page_item main-page_footer">
-                <Footer/>
-            </section>
         </div>
     )
 }

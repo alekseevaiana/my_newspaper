@@ -1,13 +1,17 @@
 html {
   height: 100%;
-  --color-background: #3eb595;
+  --color-background: rgba(42, 157, 143, 0.79);
   --block-background: #3eb595;
   --color-light-font: white;
   --light-background: white;
+  --dark-font: #4f4f4f;
+  --green-background: #6fcf97;
+  --green-font: #1f5e4d;
+  --yellow-background: #f2c94c;
 }
 body {
   height: 100%;
-  background-color: var(--light-background);
+  background-color: var(--color-background);
 }
 
 #root {
@@ -37,6 +41,11 @@ body {
 
 .App-link {
   color: #61dafb;
+}
+
+button {
+  padding: 0;
+  display: block;
 }
 
 @keyframes App-logo-spin {

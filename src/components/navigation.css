@@ -1,6 +1,19 @@
 .navigation {
-  color: var(--color-light-font);
+}
+
+.navigation_wrapper {
   display: flex;
   justify-content: space-between;
-  font-size: 24px;
+  font-size: 16px;
+  color: var(--color-light-font);
+  border-bottom: 1px solid var(--light-background);
+  padding-bottom: 20px;
+}
+
+.navigation_right-column {
+  display: flex;
+}
+
+.navigation_right-column__item {
+  margin-left: 15px;
 }

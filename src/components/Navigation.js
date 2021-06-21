@@ -5,10 +5,17 @@ import SignOut from './SignOut';
 
 export default function Navigation() {
     return (
-        <div className="navigation">
-            <div>Home</div>
-            <div>Profile</div>
-            <SignOut button_type="button_link">Sign out</SignOut>
-        </div>
+        
+            <div className="navigation_wrapper">
+                <div>My_Newspapper.</div>
+                <div className="navigation_right-column">
+                    <div className="navigation_right-column__item">Home</div>
+                    <div className="navigation_right-column__item">Profile</div>
+                    <div className="navigation_right-column__item">
+                        <SignOut button_type="button_link">Sing out</SignOut>
+                    </div>
+                </div>
+            </div>
+        
     )
 }
