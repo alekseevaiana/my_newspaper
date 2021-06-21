@@ -2,9 +2,17 @@
   display: flex;
   justify-content: space-between;
   font-size: 16px;
-  color: var(--color-light-font);
+
   border-bottom: 1px solid var(--light-background);
   padding-bottom: 20px;
+}
+
+.dark-font {
+  color: var(--dark-font);
+}
+
+.light-font {
+  color: var(--color-light-font);
 }
 
 .navigation_right-column {
