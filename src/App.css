@@ -8,6 +8,8 @@ html {
   --green-background: #6fcf97;
   --green-font: #1f5e4d;
   --yellow-background: #f2c94c;
+  --blue-font: #2d9cdb;
+  --red-font: #eb5757;
 }
 body {
   height: 100%;

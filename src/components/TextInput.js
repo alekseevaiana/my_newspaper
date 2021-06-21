@@ -10,7 +10,7 @@ export default function TextInput() {
                 <textarea className="textarea" type="text" placeholder="What did you learn today?"/>
             </div>
             <div className="text-input_button-wrapper">
-                <Button type="button_button">Отправить</Button>
+                <Button type="button_button">Send</Button>
             </div>
         </form>
     )

@@ -1,0 +1,38 @@
+.twit {
+  padding-bottom: 5px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid #c4c4c4;
+}
+
+.twit_item {
+  margin-bottom: 15px;
+}
+
+.twit_header {
+  display: flex;
+}
+
+.twit_header__item {
+  margin-right: 5px;
+}
+
+.button_link__edit {
+  color: var(--blue-font);
+}
+
+.button_link__delete {
+  color: var(--red-font);
+}
+
+.twit_actions {
+  display: flex;
+  justify-content: space-between;
+}
+
+.twit_actions__item {
+  display: flex;
+}
+
+.twit_actions__item :first-child {
+  margin-right: 15px;
+}

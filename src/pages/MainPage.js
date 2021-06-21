@@ -3,6 +3,7 @@ import Navigation from '../components/Navigation';
 import './MainPage.css';
 import Footer from '../components/Footer';
 import TextInput from '../components/TextInput';
+import Twit from '../components/Twit';
 
 export default function MainPage() {
     return (
@@ -14,7 +15,9 @@ export default function MainPage() {
                 <section className="main-page_top-block">
                     <TextInput/>
                 </section>
-                <section className="main-page_twits">Twits</section>
+                <section className="main-page_twits">
+                    <Twit/>
+                </section>
             </div>
         </div>
     )
