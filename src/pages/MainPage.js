@@ -9,7 +9,7 @@ export default function MainPage() {
     return (
         <div className="main-page">
             <section className="main-page_item main-page_navigation">
-                <Navigation/>
+                <Navigation type="light"/>
             </section>
             <div className="main-page_item main-page_wrapper">
                 <section className="main-page_top-block">

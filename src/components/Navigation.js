@@ -1,12 +1,19 @@
 import React from 'react';
 import './navigation.css'
 import SignOut from './SignOut';
+import clsx from "clsx";
 
 
-export default function Navigation() {
+export default function Navigation(props) {
+
+    const {className, type, ...rest} = props;
+    const classes = clsx({
+        "navigation_wrapper": true,
+        "dark-font": type === "dark",
+        "light-font": type === "light"
+    }, className);
     return (
-        
-            <div className="navigation_wrapper">
+            <div className={classes}>
                 <div>My_Newspapper.</div>
                 <div className="navigation_right-column">
                     <div className="navigation_right-column__item">Home</div>
