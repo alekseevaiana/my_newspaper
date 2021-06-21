@@ -5,6 +5,8 @@ export default function Button(props) {
     let button_class = "";
     if (props.type === "button_link") {
         button_class = button_class + "button_link";
+    } else if (props.type === "button_button") {
+      button_class = button_class + "button_button"
     }
   return (
     <button 

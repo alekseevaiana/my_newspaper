@@ -9,3 +9,17 @@
   font-size: inherit;
   cursor: pointer;
 }
+
+.button_button {
+  background-color: var(--green-background);
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  border-radius: 20px;
+  border-color: transparent;
+  color: inherit;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
