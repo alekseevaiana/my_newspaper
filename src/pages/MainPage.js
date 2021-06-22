@@ -8,7 +8,7 @@ import Twit from '../components/Twit';
 export default function MainPage() {
     return (
         <div className="main-page">
-            <section className="main-page_item main-page_navigation">
+            <section className="main-page_item">
                 <Navigation type="light"/>
             </section>
             <div className="main-page_item main-page_wrapper">

@@ -2,17 +2,19 @@
   display: flex;
   justify-content: space-between;
   font-size: 16px;
-
-  border-bottom: 1px solid var(--light-background);
+  margin-bottom: 10px;
+  padding-top: 20px;
   padding-bottom: 20px;
 }
 
 .dark-font {
   color: var(--dark-font);
+  border-bottom: 1px solid var(--dark-font);
 }
 
 .light-font {
   color: var(--color-light-font);
+  border-bottom: 1px solid var(--light-background);
 }
 
 .navigation_right-column {
