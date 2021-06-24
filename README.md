@@ -6,15 +6,15 @@ This project is currently in development.
 
 Clone down this repository. You will need node and npm installed globally on your machine.
 
-### Installation:
+#### Installation:
 
 npm install
 
-### To Start Server:
+#### To Start Server:
 
 npm start
 
-### To Visit App:
+#### To Visit App:
 
 localhost:3000/
 
