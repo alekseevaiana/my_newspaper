@@ -1,5 +1,7 @@
 import "./signInForm.css";
 import Button from "./Button";
+import { Auth } from "aws-amplify";
+import { AmplifyEmailField, AmplifyPasswordField } from "@aws-amplify/ui-react";
 
 function Input({ type, name, onChange, label_name, className }) {
   return (
@@ -18,17 +20,27 @@ export default function SignInForm() {
   function handleNameChange(event) {
     console.log(event.target.value);
   }
+
+  const onClick = async () => {
+    try {
+      // await Auth.signIn()
+      const user = await Auth.signIn(AmplifyEmailField, AmplifyPasswordField);
+      window.location.href = "/";
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
-    <form className="sign-in-form">
+    <form onSubmit={onClick} className="sign-in-form">
       <Input
         type="text"
-        name="email"
+        name={AmplifyEmailField}
         label_name="Email"
         className="sign-in-form_input"
       />
       <Input
         type="text"
-        name="password"
+        name={AmplifyPasswordField}
         label_name="Password"
         className="sign-in-form_input"
       />
