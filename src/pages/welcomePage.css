@@ -1,0 +1,32 @@
+.welcome-page {
+  background-color: rgba(42, 157, 143, 0.79);
+  height: 100%;
+  padding-top: 150px;
+  padding-left: 100px;
+}
+
+.welcome-page_header {
+  font-size: 62px;
+  width: 600px;
+}
+
+.welcome-page_description {
+  font-size: 32px;
+  width: 600px;
+}
+
+.welcome-page .sign-up-button {
+  background-color: #f2c94c;
+  width: 248px;
+  height: 248px;
+  border-radius: 100%;
+  border: none;
+  font-size: 38px;
+  font-weight: bold;
+  color: #1f5e4d;
+
+  position: absolute;
+  top: 35%;
+  left: 60%;
+  cursor: pointer;
+}

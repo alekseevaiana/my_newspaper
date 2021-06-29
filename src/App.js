@@ -1,18 +1,18 @@
-import React from 'react';
-import './App.css';
-import './pages/MainPage';
-import { withAuthenticator } from '@aws-amplify/ui-react'
-import MainPage from './pages/MainPage';
-import SignUpForm from './pages/SignUpForm';
+import React from "react";
+import "./App.css";
+import "./pages/MainPage";
+import { withAuthenticator } from "@aws-amplify/ui-react";
+import MainPage from "./pages/MainPage";
+import WelcomePage from "./pages/WelcomePage";
+// import SignUpForm from "./pages/SignUpForm";
 
-function App() {
-  
+export default function App() {
   return (
     <div className="app">
-  {/* <SignUpForm/> */}
-  <MainPage/>
+      <WelcomePage />
+      {/* <MainPage /> */}
     </div>
   );
 }
 
-export default withAuthenticator(App);
+// export default withAuthenticator(App);

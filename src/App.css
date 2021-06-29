@@ -13,6 +13,8 @@ html {
 }
 body {
   height: 100%;
+  color: var(--color-light-font);
+  font-family: "Roboto";
 }
 
 #root {

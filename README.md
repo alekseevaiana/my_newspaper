@@ -2,6 +2,10 @@
 
 This project is currently in development.
 
+## Last deployed version
+
+https://dev.d3fkjhridnftbd.amplifyapp.com/
+
 ## Installation and Setup Instructions
 
 Clone down this repository. You will need node and npm installed globally on your machine.
@@ -17,6 +21,12 @@ npm start
 #### To Visit App:
 
 localhost:3000/
+
+## Amplify
+
+### log in into a console
+
+`amplify console`
 
 ## About the project
 

@@ -1,0 +1,28 @@
+.sign-in-form {
+  width: 250px;
+}
+
+.sign-in-form_input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.sign-in-form_input label {
+  margin-bottom: 5px;
+  font-size: 21px;
+}
+
+.sign-in-form_input input {
+  height: 30px;
+  border-radius: 6px;
+  border-color: var(--color-light-font);
+  border: none;
+}
+
+.sign-in-form_button {
+  width: 100%;
+  font-size: 21px;
+  font-weight: bold;
+  margin-top: 25px;
+}
