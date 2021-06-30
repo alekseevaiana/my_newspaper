@@ -5,12 +5,12 @@ import { withAuthenticator } from "@aws-amplify/ui-react";
 import MainPage from "./pages/MainPage";
 import WelcomePage from "./pages/WelcomePage";
 // import SignUpForm from "./pages/SignUpForm";
+import Authentication from "./components/Authentication";
 
 export default function App() {
   return (
-    <div className="app">
-      <WelcomePage />
-      {/* <MainPage /> */}
+    <div>
+      <Authentication />
     </div>
   );
 }
