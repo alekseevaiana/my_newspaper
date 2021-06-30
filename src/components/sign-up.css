@@ -1,0 +1,24 @@
+.sign-up_form {
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+.sign-up_input {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+}
+
+.sign-up_input label {
+  color: var(--dark-font);
+  margin-bottom: 5px;
+}
+
+.sign-up_input input {
+  height: 30px;
+}
+
+@media only screen and (min-width: 1080px) {
+}

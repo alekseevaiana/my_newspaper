@@ -1,15 +1,7 @@
 import "./signInForm.css";
 import Button from "./Button";
 import { Auth } from "aws-amplify";
-
-function Input({ type, name, value, onChange, label_name, className }) {
-  return (
-    <div className={className}>
-      <label htmlFor={name}>{label_name}</label>
-      <input type={type} name={name} onChange={onChange} value={value} />
-    </div>
-  );
-}
+import Input from "./Input";
 
 export default function SignInForm({
   inputs,
@@ -24,7 +16,7 @@ export default function SignInForm({
     // You can pass an object which has the username, password and validationData which is sent to a PreAuthentication Lambda trigger
     Auth.signIn({ username, password })
       .then((user) => console.log(user))
-      .then(() => switchComponent("MainPage"))
+      .then(() => switchComponent("Welcome"))
       .catch((err) => console.log(err));
   }
 
@@ -33,7 +25,7 @@ export default function SignInForm({
       <Input
         type="text"
         name="username"
-        label_name="username"
+        label_name="Username"
         className="sign-in-form_input"
         value={username}
         onChange={handleFormInput}

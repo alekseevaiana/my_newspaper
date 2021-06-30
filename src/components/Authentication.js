@@ -20,9 +20,7 @@ export default class Authentication extends PureComponent {
   };
 
   componentDidMount() {
-    Auth.currentAuthenticatedUser({
-      bypassCache: true, // Optional, By default is false. If set to true, this call will send a request to Cognito to get the latest user data
-    })
+    Auth.currentAuthenticatedUser()
       .then((data) => {
         let user = { username: data.username, ...data.attributes };
         if (user.email_verified) this.setState({ user, status: "Welcome" });
@@ -70,7 +68,7 @@ export default class Authentication extends PureComponent {
         return <MainPage />;
       default:
         return (
-          <SignUp
+          <WelcomePage
             switchComponent={this.switchComponent}
             handleFormInput={this.handleFormInput}
             inputs={this.state}

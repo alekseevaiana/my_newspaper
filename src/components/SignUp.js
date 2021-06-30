@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import { Auth } from "aws-amplify";
+import Input from "./Input";
+import "./sign-up.css";
+import Navigation from "./Navigation";
 
 export default class SignUp extends Component {
   handleSignUp = (event) => {
@@ -22,46 +25,54 @@ export default class SignUp extends Component {
 
   render() {
     return (
-      <form className="authentication__form">
-        <input
-          type="text"
-          name="username"
-          value={this.props.username}
-          placeholder="Username"
-          onChange={this.props.handleFormInput}
-          className="authentication__input"
-        />
-        <input
-          type="email"
-          name="email"
-          value={this.props.email}
-          placeholder="Email"
-          onChange={this.props.handleFormInput}
-          className="authentication__input"
-        />
-        <input
-          type="password"
-          name="password"
-          value={this.props.password}
-          placeholder="Password"
-          onChange={this.props.handleFormInput}
-          className="authentication__input"
-        />
-        <input
-          type="text"
-          name="phone_number"
-          value={this.props.phone_number}
-          placeholder="Phone Number"
-          onChange={this.props.handleFormInput}
-          className="authentication__input"
-        />
-        <input
-          type="submit"
-          value="SIGN UP"
-          onClick={this.handleSignUp}
-          className="authentication__button"
-        />
-      </form>
+      <>
+        <Navigation type="dark" />
+        <form className="sign-up_form">
+          <Input
+            style={{ color: "#4F4F4F" }}
+            type="text"
+            name="username"
+            value={this.props.username}
+            placeholder="Username"
+            onChange={this.props.handleFormInput}
+            className="sign-up_input"
+            label_name="Username"
+          />
+          <Input
+            type="email"
+            name="email"
+            value={this.props.email}
+            placeholder="Email"
+            onChange={this.props.handleFormInput}
+            className="sign-up_input"
+            label_name="Email"
+          />
+          <Input
+            type="password"
+            name="password"
+            value={this.props.password}
+            placeholder="Password"
+            onChange={this.props.handleFormInput}
+            className="sign-up_input"
+            label_name="Password"
+          />
+          <Input
+            type="text"
+            name="phone_number"
+            value={this.props.phone_number}
+            placeholder="Phone Number"
+            onChange={this.props.handleFormInput}
+            className="sign-up_input"
+            label_name="Phone number"
+          />
+          <input
+            type="submit"
+            value="SIGN UP"
+            onClick={this.handleSignUp}
+            className="sign-up_button"
+          />
+        </form>
+      </>
     );
   }
 }
