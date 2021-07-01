@@ -1,6 +1,5 @@
 import React, { PureComponent } from "react";
 
-import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 import Verify from "./Verify";
 
@@ -80,7 +79,6 @@ export default class Authentication extends PureComponent {
     this.setState({ status });
   };
   render() {
-    console.log(this.state);
     return <div>{this.AuthComponent()}</div>;
   }
 }

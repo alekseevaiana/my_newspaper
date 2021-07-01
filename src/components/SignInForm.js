@@ -21,7 +21,7 @@ export default function SignInForm({
   }
 
   return (
-    <form className="sign-in-form">
+    <form autocomplete="off" className="sign-in-form">
       <Input
         type="text"
         name="username"
@@ -41,7 +41,7 @@ export default function SignInForm({
       <Button
         type="submit"
         onClick={handleSignIn}
-        className="sign-in-form_button"
+        className="sign-in-form_button button_button"
       >
         Sign In
       </Button>

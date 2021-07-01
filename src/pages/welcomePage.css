@@ -26,7 +26,23 @@
   color: #1f5e4d;
 
   position: absolute;
-  top: 35%;
+  bottom: 35%;
   left: 60%;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 1080px) {
+  .welcome-page .sign-up-button {
+    bottom: 15%;
+  }
+}
+
+@media only screen and (max-width: 650px) {
+  .welcome-page .sign-up-button {
+    bottom: 0%;
+  }
+
+  .welcome-page {
+    padding-bottom: 140px;
+  }
 }

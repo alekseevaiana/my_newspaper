@@ -15,6 +15,7 @@
 
 .sign-in-form_input input {
   height: 30px;
+  padding-left: 10px;
   border-radius: 6px;
   border-color: var(--color-light-font);
   border: none;
