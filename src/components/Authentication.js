@@ -15,9 +15,10 @@ export default class Authentication extends PureComponent {
     phone_number: "",
     code: "",
     user: null, // will contain our user data object when signed in
-    status: "SignIn",
+    status: "",
   };
 
+  // happens if user email verifided
   componentDidMount() {
     Auth.currentAuthenticatedUser()
       .then((data) => {
@@ -54,19 +55,20 @@ export default class Authentication extends PureComponent {
           />
         );
 
-      case "SignIn":
-        return (
-          <WelcomePage
-            switchComponent={this.switchComponent}
-            handleFormInput={this.handleFormInput}
-            inputs={this.state}
-          />
-        );
-
+      // case "SignIn":
+      //   return (
+      //     <WelcomePage
+      //       switchComponent={this.switchComponent}
+      //       handleFormInput={this.handleFormInput}
+      //       inputs={this.state}
+      //     />
+      //   );
+      // It is not welcome page, it is first page after authorization
       case "Welcome":
         return <MainPage />;
       default:
         return (
+          // This is a Welcome page where you can find signin form and sign up button
           <WelcomePage
             switchComponent={this.switchComponent}
             handleFormInput={this.handleFormInput}
