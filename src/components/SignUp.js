@@ -3,6 +3,7 @@ import { Auth } from "aws-amplify";
 import Input from "./Input";
 import "./sign-up.css";
 import Navigation from "./Navigation";
+import { Route } from "react-router-dom";
 
 export default class SignUp extends Component {
   handleSignUp = (event) => {
@@ -13,10 +14,10 @@ export default class SignUp extends Component {
       password,
       attributes: {
         email, // optional
-        phone_number, // optional - E.164 number convention
+        //phone_number, // optional - E.164 number convention
         // other custom attributes
       },
-      validationData: [], //optional
+      //validationData: [], //optional
     })
       .then((data) => console.log(data))
       .then(() => this.props.switchComponent("Verify")) // switches Sign Up to Verification
@@ -56,7 +57,7 @@ export default class SignUp extends Component {
             className="sign-up_input"
             label_name="Password"
           />
-          <Input
+          {/* <Input
             type="text"
             name="phone_number"
             value={this.props.phone_number}
@@ -64,7 +65,7 @@ export default class SignUp extends Component {
             onChange={this.props.handleFormInput}
             className="sign-up_input"
             label_name="Phone number"
-          />
+          /> */}
           <input
             type="submit"
             value="SIGN UP"

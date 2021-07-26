@@ -6,11 +6,14 @@ import MainPage from "./pages/MainPage";
 import WelcomePage from "./pages/WelcomePage";
 // import SignUpForm from "./pages/SignUpForm";
 import Authentication from "./components/Authentication";
+import { BrowserRouter } from "react-router-dom";
 
 export default function App() {
   return (
     <div>
-      <Authentication />
+      <BrowserRouter>
+        <Authentication />
+      </BrowserRouter>
     </div>
   );
 }

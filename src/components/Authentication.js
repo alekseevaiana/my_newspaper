@@ -1,86 +1,94 @@
-import React, { PureComponent } from "react";
-
-import SignUp from "./SignUp";
-import Verify from "./Verify";
-
-import { Auth } from "aws-amplify";
+import React, { useEffect, useState } from "react";
+import { Switch, Route, useHistory } from "react-router-dom";
 import MainPage from "../pages/MainPage";
 import WelcomePage from "../pages/WelcomePage";
+import SignUp from "./SignUp";
+import { Auth } from "aws-amplify";
 
-export default class Authentication extends PureComponent {
-  state = {
+async function checkAuth() {
+  try {
+    const user = await Auth.currentAuthenticatedUser();
+    return user;
+  } catch (error) {
+    return null;
+  }
+}
+
+// init | logged | notlogged
+function useLoginState() {
+  const [authState, setAuthState] = useState("init"); // init | logged | notlogged
+
+  useEffect(() => {
+    let finished = false;
+
+    const checkLoggenIn = async () => {
+      const user = await checkAuth();
+
+      if (!finished) {
+        if (user) {
+          setAuthState("logged");
+        } else {
+          setAuthState("notlogged");
+        }
+      }
+    };
+    checkLoggenIn();
+
+    return () => {
+      finished = true;
+    };
+  }, [setAuthState]);
+
+  return authState;
+}
+
+export default function Authentication() {
+  const [state, setState] = useState({
     username: "",
     email: "",
     password: "",
     phone_number: "",
     code: "",
     user: null, // will contain our user data object when signed in
-    status: "",
-  };
+    status: "SignIn",
+  });
+  // при клике на sign up -> перевести на sign_up
+  const history = useHistory();
 
-  // happens if user email verifided
-  componentDidMount() {
-    Auth.currentAuthenticatedUser()
-      .then((data) => {
-        let user = { username: data.username, ...data.attributes };
-        if (user.email_verified) this.setState({ user, status: "Welcome" });
-      })
-      .catch((err) => console.log(err));
-  }
-
-  // Handle changes to form inputs on sign-up, verification and sign-in
-  handleFormInput = (event) => {
-    this.setState({
+  const handleFormInput = (event) => {
+    setState((state) => ({
+      ...state,
       [event.target.name]: event.target.value,
-    });
+    }));
   };
 
-  AuthComponent = () => {
-    switch (this.state.status) {
-      case "SignUp":
-        return (
-          <SignUp
-            switchComponent={this.switchComponent}
-            handleFormInput={this.handleFormInput}
-            inputs={this.state}
-          />
-        );
+  const authState = useLoginState();
 
-      case "Verify":
-        return (
-          <Verify
-            switchComponent={this.switchComponent}
-            handleFormInput={this.handleFormInput}
-            inputs={this.state}
-          />
-        );
-
-      // case "SignIn":
-      //   return (
-      //     <WelcomePage
-      //       switchComponent={this.switchComponent}
-      //       handleFormInput={this.handleFormInput}
-      //       inputs={this.state}
-      //     />
-      //   );
-      // It is not welcome page, it is first page after authorization
-      case "Welcome":
-        return <MainPage />;
-      default:
-        return (
-          // This is a Welcome page where you can find signin form and sign up button
-          <WelcomePage
-            switchComponent={this.switchComponent}
-            handleFormInput={this.handleFormInput}
-            inputs={this.state}
-          />
-        );
+  useEffect(() => {
+    if (
+      authState === "notlogged" &&
+      history.location.pathname !== "/sign_in" &&
+      history.location.pathname !== "/sign_up"
+    ) {
+      history.push("/sign_in");
     }
-  };
-  switchComponent = (status) => {
-    this.setState({ status });
-  };
-  render() {
-    return <div>{this.AuthComponent()}</div>;
+  }, [authState, history]);
+
+  if (authState == "init") {
+    return "checking login";
   }
+
+  return (
+    <Switch>
+      <Route exact path="/">
+        <MainPage />
+      </Route>
+      <Route exact path="/sign_in">
+        <WelcomePage handleFormInput={handleFormInput} inputs={state} />
+      </Route>
+      <Route exact path="/sign_up">
+        <SignUp />
+      </Route>
+    </Switch>
+  );
 }

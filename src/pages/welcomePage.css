@@ -1,8 +1,18 @@
 .welcome-page {
   background-color: rgba(42, 157, 143, 0.79);
-  height: 100vh;
+  min-height: 100vh;
   padding-top: 150px;
   padding-left: 100px;
+}
+
+.welcome-page_flex-wrapper {
+  display: flex;
+}
+
+.welcome-page_flex-wrapper__right {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .welcome-page_header {
@@ -16,6 +26,10 @@
 }
 
 .welcome-page .sign-up-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
   background-color: #f2c94c;
   width: 248px;
   height: 248px;
@@ -25,23 +39,13 @@
   font-weight: bold;
   color: #1f5e4d;
 
-  position: absolute;
-  bottom: 35%;
-  left: 60%;
   cursor: pointer;
 }
 
 @media only screen and (max-width: 1080px) {
-  .welcome-page .sign-up-button {
-    bottom: 15%;
-  }
 }
 
 @media only screen and (max-width: 650px) {
-  .welcome-page .sign-up-button {
-    bottom: 0%;
-  }
-
   .welcome-page {
     padding-bottom: 140px;
   }
