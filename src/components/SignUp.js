@@ -1,14 +1,21 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { Auth } from "aws-amplify";
 import Input from "./Input";
 import "./sign-up.css";
 import Navigation from "./Navigation";
-import { Route } from "react-router-dom";
+//import { Route } from "react-router-dom";
+import ErrorMessage from "./ErrorMessage";
+import portraitImg from "../img/picasso.jpeg";
+import Button from "./Button";
 
-export default class SignUp extends Component {
-  handleSignUp = (event) => {
+export default function SignUp(props) {
+  const [errorMessage, setErrorMessage] = useState("");
+
+  const handleSignUp = (event) => {
     event.preventDefault();
-    const { username, email, password, phone_number } = this.props.inputs;
+
+    const { username, email, password } = props.inputs;
+
     Auth.signUp({
       username,
       password,
@@ -20,60 +27,56 @@ export default class SignUp extends Component {
       //validationData: [], //optional
     })
       .then((data) => console.log(data))
-      .then(() => this.props.switchComponent("Verify")) // switches Sign Up to Verification
-      .catch((err) => console.log(err));
+      //.then(() => this.props.switchComponent("Verify")) // switches Sign Up to Verification
+      .catch((err) => {
+        setErrorMessage(err.message);
+        console.log(err);
+      });
   };
 
-  render() {
-    return (
-      <>
-        <Navigation type="dark" />
-        <form className="sign-up_form">
+  return (
+    <>
+      <Navigation type="dark" />
+      <div className="sign-up_wrapper">
+        <form className="sign-up_form" onSubmit={handleSignUp}>
           <Input
             style={{ color: "#4F4F4F" }}
             type="text"
             name="username"
-            value={this.props.username}
+            value={props.username}
             placeholder="Username"
-            onChange={this.props.handleFormInput}
+            onChange={props.handleFormInput}
             className="sign-up_input"
             label_name="Username"
           />
           <Input
             type="email"
             name="email"
-            value={this.props.email}
+            value={props.email}
             placeholder="Email"
-            onChange={this.props.handleFormInput}
+            onChange={props.handleFormInput}
             className="sign-up_input"
             label_name="Email"
           />
           <Input
             type="password"
             name="password"
-            value={this.props.password}
+            value={props.password}
             placeholder="Password"
-            onChange={this.props.handleFormInput}
+            onChange={props.handleFormInput}
             className="sign-up_input"
             label_name="Password"
           />
-          {/* <Input
-            type="text"
-            name="phone_number"
-            value={this.props.phone_number}
-            placeholder="Phone Number"
-            onChange={this.props.handleFormInput}
-            className="sign-up_input"
-            label_name="Phone number"
-          /> */}
-          <input
-            type="submit"
-            value="SIGN UP"
-            onClick={this.handleSignUp}
-            className="sign-up_button"
-          />
+          {errorMessage && <ErrorMessage>{errorMessage}</ErrorMessage>}
+
+          <Button type="submit" className="sign-in-form_button button_button">
+            Sign Up
+          </Button>
         </form>
-      </>
-    );
-  }
+        <div>
+          <img src={portraitImg} />
+        </div>
+      </div>
+    </>
+  );
 }

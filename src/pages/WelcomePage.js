@@ -14,7 +14,9 @@ export default function WelcomePage({ handleFormInput, inputs }) {
     <div className="welcome-page">
       <div className="welcome-page_flex-wrapper">
         <div>
-          <h1 className="welcome-page_header">Welcome to My_NewsPapper!</h1>
+          <h1 className="welcome-page_header">
+            Welcome to <br></br> Learn & Share
+          </h1>
           <p className="welcome-page_description">
             Share with your friends what did you learn today!
           </p>

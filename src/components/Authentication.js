@@ -43,6 +43,7 @@ function useLoginState() {
 }
 
 export default function Authentication() {
+  const [loading, setLoading] = useState(false);
   const [state, setState] = useState({
     username: "",
     email: "",
@@ -87,7 +88,7 @@ export default function Authentication() {
         <WelcomePage handleFormInput={handleFormInput} inputs={state} />
       </Route>
       <Route exact path="/sign_up">
-        <SignUp />
+        <SignUp handleFormInput={handleFormInput} inputs={state} />
       </Route>
     </Switch>
   );
