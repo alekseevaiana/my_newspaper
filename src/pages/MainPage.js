@@ -6,6 +6,8 @@ import Footer from "../components/Footer";
 import TextInput from "../components/TextInput";
 import Twit from "../components/Twit";
 
+// how to check if user logged in?
+
 export default function MainPage() {
   return (
     <div className="main-page">

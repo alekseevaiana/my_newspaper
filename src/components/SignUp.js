@@ -3,7 +3,7 @@ import { Auth } from "aws-amplify";
 import Input from "./Input";
 import "./sign-up.css";
 import Navigation from "./Navigation";
-//import { Route } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import ErrorMessage from "./ErrorMessage";
 import portraitImg from "../img/picasso.jpeg";
 import Button from "./Button";
@@ -11,6 +11,7 @@ import Button from "./Button";
 export default function SignUp(props) {
   const [errorMessage, setErrorMessage] = useState("");
 
+  const history = useHistory();
   const handleSignUp = (event) => {
     event.preventDefault();
 
@@ -27,7 +28,7 @@ export default function SignUp(props) {
       //validationData: [], //optional
     })
       .then((data) => console.log(data))
-      //.then(() => this.props.switchComponent("Verify")) // switches Sign Up to Verification
+      .then(() => history.push("/verify")) // switches Sign Up to Verification
       .catch((err) => {
         setErrorMessage(err.message);
         console.log(err);
@@ -36,7 +37,9 @@ export default function SignUp(props) {
 
   return (
     <>
-      <Navigation type="dark" />
+      <div style={{ paddingRight: "50px", paddingLeft: "50px" }}>
+        <Navigation type="dark" />
+      </div>
       <div className="sign-up_wrapper">
         <form className="sign-up_form" onSubmit={handleSignUp}>
           <Input

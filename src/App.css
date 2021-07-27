@@ -17,6 +17,13 @@ body {
   font-family: "Roboto";
 }
 
+a {
+  text-decoration: none;
+  color: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+
 #root {
   height: 100%;
 }
@@ -27,7 +34,10 @@ body {
 
 button {
   padding: 0;
+  padding-top: 1px;
   display: block;
+  font-size: inherit;
+  line-height: inherit;
 }
 
 .sign-up_input label {

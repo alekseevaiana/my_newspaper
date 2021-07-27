@@ -3,6 +3,8 @@ import { Switch, Route, useHistory } from "react-router-dom";
 import MainPage from "../pages/MainPage";
 import WelcomePage from "../pages/WelcomePage";
 import SignUp from "./SignUp";
+import Verify from "./Verify";
+import NotFound from "./NotFound";
 import { Auth } from "aws-amplify";
 
 async function checkAuth() {
@@ -89,6 +91,12 @@ export default function Authentication() {
       </Route>
       <Route exact path="/sign_up">
         <SignUp handleFormInput={handleFormInput} inputs={state} />
+      </Route>
+      <Route exact path="/verify">
+        <Verify handleFormInput={handleFormInput} inputs={state} />
+      </Route>
+      <Route>
+        <NotFound />
       </Route>
     </Switch>
   );
