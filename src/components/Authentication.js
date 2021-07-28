@@ -5,44 +5,7 @@ import WelcomePage from "../pages/WelcomePage";
 import SignUp from "./SignUp";
 import Verify from "./Verify";
 import NotFound from "./NotFound";
-import { Auth } from "aws-amplify";
-
-async function checkAuth() {
-  try {
-    const user = await Auth.currentAuthenticatedUser();
-    return user;
-  } catch (error) {
-    return null;
-  }
-}
-
-// init | logged | notlogged
-function useLoginState() {
-  const [authState, setAuthState] = useState("init"); // init | logged | notlogged
-
-  useEffect(() => {
-    let finished = false;
-
-    const checkLoggenIn = async () => {
-      const user = await checkAuth();
-
-      if (!finished) {
-        if (user) {
-          setAuthState("logged");
-        } else {
-          setAuthState("notlogged");
-        }
-      }
-    };
-    checkLoggenIn();
-
-    return () => {
-      finished = true;
-    };
-  }, [setAuthState]);
-
-  return authState;
-}
+import useLoginState from "../hooks/useLoginState.js";
 
 export default function Authentication() {
   const [state, setState] = useState({
@@ -54,9 +17,10 @@ export default function Authentication() {
     user: null, // will contain our user data object when signed in
     status: "SignIn",
   });
-  // при клике на sign up -> перевести на sign_up
+
   const history = useHistory();
 
+  // init | logged | notlogged
   const authState = useLoginState();
 
   useEffect(() => {
@@ -84,15 +48,14 @@ export default function Authentication() {
     <>
       {console.log("authState is " + authState)}
       <Switch>
-        <Route path="/">
-          {/* MainTemplate */}
-          <MainPage loggedIn={authState === "logged"} />
-        </Route>
         <Route exact path="/sign_in">
           <WelcomePage handleFormInput={handleFormInput} inputs={state} />
         </Route>
         <Route exact path="/sign_up">
           <SignUp handleFormInput={handleFormInput} inputs={state} />
+        </Route>
+        <Route path="/">
+          <MainPage loggedIn={authState === "logged"} />
         </Route>
         <Route exact path="/verify">
           <Verify handleFormInput={handleFormInput} inputs={state} />

@@ -20,7 +20,7 @@ export default function Navigation(props) {
     <nav className={classes}>
       {console.log(location.pathname)}
       {/* route should link to "/", but first we have to figure out how to check user auth */}
-      <Link to="/sign_in">
+      <Link to="/">
         <div>My_Newspapper.</div>
       </Link>
       <div className="navigation_right-column">
@@ -33,11 +33,10 @@ export default function Navigation(props) {
         </div>
         {/* show if you are on page '/' or 'profile'  */}
         {console.log("is logged in? " + loggedIn)}
-        {loggedIn && (
-          <div className="navigation_right-column__item">
-            <SignOut button_type="button_link">Sing out</SignOut>
-          </div>
-        )}
+
+        <div className="navigation_right-column__item">
+          <SignOut button_type="button_link">Sing out</SignOut>
+        </div>
       </div>
     </nav>
   );
