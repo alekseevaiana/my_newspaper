@@ -3,10 +3,12 @@ import "./navigation.css";
 import SignOut from "./SignOut";
 import clsx from "clsx";
 import { Link, useLocation } from "react-router-dom";
+import useLoginState from "../hooks/useLoginState";
 
 export default function Navigation(props) {
   const { className, type, loggedIn } = props;
   const location = useLocation();
+  const authState = useLoginState();
 
   const classes = clsx(
     {
@@ -32,11 +34,12 @@ export default function Navigation(props) {
           <Link to="/profile">Profile</Link>
         </div>
         {/* show if you are on page '/' or 'profile'  */}
-        {console.log("is logged in? " + loggedIn)}
-
-        <div className="navigation_right-column__item">
-          <SignOut button_type="button_link">Sing out</SignOut>
-        </div>
+        {console.log("authState is? " + authState)}
+        {authState === "logged" ? (
+          <div className="navigation_right-column__item">
+            <SignOut button_type="button_link">Sing out</SignOut>
+          </div>
+        ) : null}
       </div>
     </nav>
   );
