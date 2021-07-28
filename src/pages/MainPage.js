@@ -1,27 +1,28 @@
 import React, { useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import { Switch, Route, useLocation } from "react-router-dom";
 import Navigation from "../components/Navigation";
-import "./MainPage.css";
-import Footer from "../components/Footer";
 import TextInput from "../components/TextInput";
-import Twit from "../components/Twit";
+import MainPageWrapper from "../components/MainPageWrapper";
+import "./MainPage.css";
 
 // how to check if user logged in?
 
 export default function MainPage() {
   return (
-    <div className="main-page">
-      <section className="main-page_item">
+    <>
+      <div className="main-page">
         <Navigation type="light" />
-      </section>
-      <div className="main-page_item main-page_wrapper">
-        <section className="main-page_top-block">
-          <TextInput />
-        </section>
-        <section className="main-page_twits">
-          <Twit />
-        </section>
+        <MainPageWrapper>
+          <Switch>
+            <Route exact path="/">
+              <TextInput />
+            </Route>
+            <Route exact path="/profile">
+              User Info
+            </Route>
+          </Switch>
+        </MainPageWrapper>
       </div>
-    </div>
+    </>
   );
 }

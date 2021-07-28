@@ -45,7 +45,6 @@ function useLoginState() {
 }
 
 export default function Authentication() {
-  const [loading, setLoading] = useState(false);
   const [state, setState] = useState({
     username: "",
     email: "",
@@ -57,13 +56,6 @@ export default function Authentication() {
   });
   // при клике на sign up -> перевести на sign_up
   const history = useHistory();
-
-  const handleFormInput = (event) => {
-    setState((state) => ({
-      ...state,
-      [event.target.name]: event.target.value,
-    }));
-  };
 
   const authState = useLoginState();
 
@@ -81,23 +73,34 @@ export default function Authentication() {
     return "checking login";
   }
 
+  const handleFormInput = (event) => {
+    setState((state) => ({
+      ...state,
+      [event.target.name]: event.target.value,
+    }));
+  };
+
   return (
-    <Switch>
-      <Route exact path="/">
-        <MainPage />
-      </Route>
-      <Route exact path="/sign_in">
-        <WelcomePage handleFormInput={handleFormInput} inputs={state} />
-      </Route>
-      <Route exact path="/sign_up">
-        <SignUp handleFormInput={handleFormInput} inputs={state} />
-      </Route>
-      <Route exact path="/verify">
-        <Verify handleFormInput={handleFormInput} inputs={state} />
-      </Route>
-      <Route>
-        <NotFound />
-      </Route>
-    </Switch>
+    <>
+      {console.log("authState is " + authState)}
+      <Switch>
+        <Route path="/">
+          {/* MainTemplate */}
+          <MainPage loggedIn={authState === "logged"} />
+        </Route>
+        <Route exact path="/sign_in">
+          <WelcomePage handleFormInput={handleFormInput} inputs={state} />
+        </Route>
+        <Route exact path="/sign_up">
+          <SignUp handleFormInput={handleFormInput} inputs={state} />
+        </Route>
+        <Route exact path="/verify">
+          <Verify handleFormInput={handleFormInput} inputs={state} />
+        </Route>
+        <Route>
+          <NotFound />
+        </Route>
+      </Switch>
+    </>
   );
 }
