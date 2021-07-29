@@ -20,22 +20,26 @@ export default function Navigation(props) {
   );
   return (
     <nav className={classes}>
-      <Link to="/">
-        <div>My_Newspapper.</div>
-      </Link>
-      <div className="navigation_right-column">
-        <div className="navigation_right-column__item">
-          <Link to="/">Home</Link>
-        </div>
-        <div className="navigation_right-column__item">
-          <Link to="/profile">Profile</Link>
-        </div>
-        {authState === "logged" ? (
-          <div className="navigation_right-column__item">
-            <SignOut button_type="button_link">Sing out</SignOut>
+      {authState === "logged" ? (
+        <>
+          <Link to="/">My_Newspapper.</Link>
+          <div className="navigation_right-column">
+            <Link to="/" className="navigation_right-column__item">
+              Home
+            </Link>
+            <Link to="/profile" className="navigation_right-column__item">
+              Profile
+            </Link>
+            <div className="navigation_right-column__item">
+              <SignOut button_type="button_link">Sing out</SignOut>
+            </div>
           </div>
-        ) : null}
-      </div>
+        </>
+      ) : (
+        <>
+          <Link to="/sign_in">My_Newspapper.</Link>
+        </>
+      )}
     </nav>
   );
 }

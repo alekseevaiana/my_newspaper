@@ -3,13 +3,15 @@ import { Switch, Route, useLocation } from "react-router-dom";
 import Navigation from "../components/Navigation";
 import TextInput from "../components/TextInput";
 import MainPageWrapper from "../components/MainPageWrapper";
+import useLoginState from "../hooks/useLoginState";
 import "./MainPage.css";
 
 // how to check if user logged in?
 
-export default function MainPage() {
+export default function MainPage({ loggedIn }) {
   return (
     <>
+      {/* {console.log("loggedIn? " + authState)} */}
       <div className="main-page">
         <Navigation type="light" />
         <MainPageWrapper>

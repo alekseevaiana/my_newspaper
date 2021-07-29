@@ -46,7 +46,6 @@ export default function Authentication() {
 
   return (
     <>
-      {console.log("authState is " + authState)}
       <Switch>
         <Route exact path="/sign_in">
           <WelcomePage handleFormInput={handleFormInput} inputs={state} />
@@ -55,7 +54,7 @@ export default function Authentication() {
           <SignUp handleFormInput={handleFormInput} inputs={state} />
         </Route>
         <Route path="/">
-          <MainPage loggedIn={authState === "logged"} />
+          <MainPage />
         </Route>
         <Route exact path="/verify">
           <Verify handleFormInput={handleFormInput} inputs={state} />
